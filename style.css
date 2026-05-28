@@ -13,7 +13,7 @@ body {
 
 /* BARRA DE NAVEGACIÓN */
 header {
-    background-color: #0f172a; /* El azul noche de tu imagen */
+    background-color: #1b365d /* El azul noche de tu imagen */
     color: white;
     display: flex;
     justify-content: space-between;
@@ -46,7 +46,7 @@ header nav a:hover {
 /* PORTADA (HERO) */
 .hero {
     background-linear-gradient: rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95);
-    background-color: #0f172a; /* Fondo azul noche */
+    background-color: #1b365d; /* Fondo azul noche */
     color: white;
     height: 80vh;
     display: flex;
@@ -159,11 +159,11 @@ footer {
     border-radius: 12px;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    border: 2px solid #0f172a;
+    border: 2px solid #727d8c;
 }
 
 .mes-header {
-    background-color: #0f172a; /* Azul Noche */
+    background-color: #727d8c; /* Azul Noche */
     color: white;
     padding: 15px;
     font-size: 1.2rem;
