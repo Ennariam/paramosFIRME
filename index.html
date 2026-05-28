@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIRME - Movimiento Estudiantil</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <header>
+        <div class="logo">FIRME</div>
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#calendario">Calendario</a>
+        </nav>
+    </header>
+
+    <!-- PORTADA PRINCIPAL -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>FIRME</h1>
+            <p class="subtitulo">Fuerza Independiente Representando el Movimiento Estudiantil</p>
+            <p class="lema">"Paramos Firme"</p>
+            <a href="#nosotros" class="btn-principal">Conócenos</a>
+        </div>
+    </section>
+
+    <!-- SECCIÓN QUIENES SOMOS -->
+    <section id="nosotros" class="seccion">
+        <h2>¿Quiénes Somos?</h2>
+        <div class="contenedor-grid">
+            <div class="tarjeta">
+                <h3>Nuestra Misión</h3>
+                <p>Representar con transparencia, fuerza e independencia a cada estudiante de nuestra facultad, construyendo un espacio donde todas las voces sean escuchadas.</p>
+            </div>
+            <div class="tarjeta">
+                <h3>¿Qué Hacemos?</h3>
+                <p>Organizamos actividades académicas, culturales y de apoyo estudiantil, asegurando que tu paso por la universidad sea el mejor posible.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DEL CALENDARIO DINÁMICO -->
+    <section id="calendario" class="seccion-calendario">
+        <h2>Calendario de Actividades</h2>
+        <p class="instruccion">Haz clic en un día para ver los eventos vinculados desde Google Sheets.</p>
+        
+        <div class="calendario-contenedor">
+            <div class="mes-header">
+                <h3>Mayo 2026</h3>
+            </div>
+            
+            <div class="dias-semana">
+                <div>Dom</div><div>Lun</div><div>Mar</div><div>Mié</div><div>Jue</div><div>Vie</div><div>Sáb</div>
+            </div>
+            
+            <div class="dias-cuadricula">
+                <div class="dia-vacio"></div><div class="dia-vacio"></div><div class="dia-vacio"></div><div class="dia-vacio"></div><div class="dia-vacio"></div>
+                
+                <!-- Botones del calendario -->
+                <button class="dia-btn" onclick="buscarEventoInSheets('1 de Mayo')">1</button>
+                <button class="dia-btn" onclick="buscarEventoInSheets('2 de Mayo')">2</button>
+                <button class="dia-btn" onclick="buscarEventoInSheets('3 de Mayo')">3</button>
+                <button class="dia-btn" onclick="buscarEventoInSheets('4 de Mayo')">4</button>
+                <button class="dia-btn" onclick="buscarEventoInSheets('5 de Mayo')">5</button>
+                <button class="dia-btn" onclick="buscarEventoInSheets('6 de Mayo')">6</button>
+                <button class="dia-btn" onclick="buscarEventoInSheets('7 de Mayo')">7</button>
+                <button class="dia-btn" onclick="buscarEventoInSheets('8 de Mayo')">8</button>
+                <button class="dia-btn" onclick="buscarEventoInSheets('9 de Mayo')">9</button>
+                <button class="dia-btn" onclick="buscarEventoInSheets('10 de Mayo')">10</button>
+                <button class="dia-btn" onclick="buscarEventoInSheets('11 de Mayo')">11</button>
+                <button class="dia-btn" onclick="buscarEventoInSheets('12 de Mayo')">12</button>
+                <button class="dia-btn animate-hoy" onclick="buscarEventoInSheets('13 de Mayo')">13</button>
+                <button class="dia-btn" onclick="buscarEventoInSheets('14 de Mayo')">14</button>
+                <button class="dia-btn" onclick="buscarEventoInSheets('15 de Mayo')">15</button>
+                <button class="dia-btn" onclick="buscarEventoInSheets('16 de Mayo')">16</button>
+                <button class="dia-btn" onclick="buscarEventoInSheets('17 de Mayo')">17</button>
+                <button class="dia-btn" onclick="buscarEventoInSheets('18 de Mayo')">18</button>
+                <button class="dia-btn" onclick="buscarEventoInSheets('19 de Mayo')">19</button>
+                <button class="dia-btn" onclick="buscarEventoInSheets('20 de Mayo')">20</button>
+                <button class="dia-btn" onclick="buscarEventoInSheets('21 de Mayo')">21</button>
+                <button class="dia-btn" onclick="buscarEventoInSheets('22 de Mayo')">22</button>
+                <button class="dia-btn" onclick="buscarEventoInSheets('23 de Mayo')">23</button>
+                <button class="dia-btn" onclick="buscarEventoInSheets('24 de Mayo')">24</button>
+                <button class="dia-btn" onclick="buscarEventoInSheets('25 de Mayo')">25</button>
+                <button class="dia-btn" onclick="buscarEventoInSheets('26 de Mayo')">26</button>
+                <button class="dia-btn" onclick="buscarEventoInSheets('27 de Mayo')">27</button>
+                <button class="dia-btn" onclick="buscarEventoInSheets('28 de Mayo')">28</button>
+                <button class="dia-btn" onclick="buscarEventoInSheets('29 de Mayo')">29</button>
+                <button class="dia-btn" onclick="buscarEventoInSheets('30 de Mayo')">30</button>
+                <button class="dia-btn" onclick="buscarEventoInSheets('31 de Mayo')">31</button>
+            </div>
+        </div>
+
+        <div id="panel-evento" class="panel-evento">
+            <h3 id="evento-fecha">Selecciona un día</h3>
+            <p id="evento-texto">La información se actualizará dinámicamente desde el Excel de Google.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 FIRME - Fuerza Independiente Representando el Movimiento Estudiantil</p>
+    </footer>
+
+    <script>
+        // REEMPLAZA ESTA URL CON TU ENLACE CSV PUBLICADO DESDE GOOGLE SHEETS
+        const urlGoogleSheetsCSV = 'TU_URL_DE_GOOGLE_SHEETS_AQUÍ';
+        let baseDatosEventos = {};
+
+        async function cargarDatosDesdeSheets() {
+            try {
+                const respuesta = await fetch(urlGoogleSheetsCSV);
+                const textoCSV = await respuesta.text();
+                
+                // Procesar filas del CSV de manera segura
+                const filas = textoCSV.split('\n');
+                for (let i = 1; i < filas.length; i++) {
+                    const fila = filas[i].trim();
+                    if (fila) {
+                        // Separar por comas respetando comillas si existen
+                        const columnas = fila.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
+                        if (columnas.length >= 2) {
+                            const fechaKey = columnas[0].replace(/"/g, '').trim();
+                            const actividadValue = columnas[1].replace(/"/g, '').trim();
+                            baseDatosEventos[fechaKey] = actividadValue;
+                        }
+                    }
+                }
+                console.log("Datos de Google Sheets cargados con éxito.");
+            } catch (error) {
+                console.error("Error al conectar con Google Sheets:", error);
+            }
+        }
+
+        function buscarEventoInSheets(fecha) {
+            document.getElementById('evento-fecha').innerText = fecha;
+            const detalle = baseDatosEventos[fecha] || "No hay actividades programadas para hoy en el sistema de Google Sheets.";
+            document.getElementById('evento-texto').innerText = detalle;
+            
+            const panel = document.getElementById('panel-evento');
+            panel.style.borderLeft = "8px solid #facc15"; 
+            panel.style.background = "#fff";
+        }
+
+        // Ejecutar la carga automática al abrir la web
+        window.onload = cargarDatosDesdeSheets;
+    </script>
+</body>
+</html>
